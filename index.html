@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Joshua Riggs • Software Engineer</title>
+  <meta name="description" content="Portfolio of Joshua Riggs — software engineer with a finance & operations background. Projects, experience, and contact." />
+  <meta name="author" content="Joshua Riggs" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Joshua Riggs • Software Engineer" />
+  <meta property="og:description" content="Finance-fluent engineer. I build data-driven products that reduce cost, grow revenue, and make compliance effortless." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630'%3E%3Crect width='100%25' height='100%25' fill='%230b0c10'/%3E%3Ctext x='50%25' y='50%25' fill='%237c9cff' font-family='system-ui,Segoe UI,Roboto' font-size='64' text-anchor='middle' dy='.35em'%3EJoshua Riggs%3C/text%3E%3C/svg%3E" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon (inline SVG) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%237c9cff'/%3E%3Cstop stop-color='%2341d1b7' offset='1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='12' fill='%230b0c10'/%3E%3Cpath d='M18 18h12v28H18zM34 26h12v20H34z' fill='url(%23g)'/%3E%3C/svg%3E" />
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Joshua Riggs",
+    "jobTitle": "Software Engineer",
+    "email": "mailto:JoshuaMRiggs@icloud.com",
+    "sameAs": ["https://www.linkedin.com/in/joshua-riggs-95026617a"],
+    "knowsAbout": ["JavaScript","TypeScript","Python","SQL","Data Visualization","Forecasting","Compliance UX"],
+    "url": ""
+  }
+  </script>
+
+  <style>
+    /* ===== Design tokens ===== */
+    :root{
+      --bg:#0b0c10; --card:#11131a; --muted:#a0a7b4; --text:#e9edf1;
+      --brand:#7c9cff; --accent:#41d1b7; --ring:rgba(124,156,255,.35);
+      --code:#0c1116; --shadow:0 10px 30px rgba(0,0,0,.35); --radius:16px;
+      --maxw:1100px;
+    }
+    html[data-theme="light"]{
+      --bg:#f7f8fb; --card:#ffffff; --muted:#64748b; --text:#0f172a;
+      --brand:#365cf5; --accent:#0ea5a4; --ring:rgba(54,92,245,.25);
+      --code:#0b1220; --shadow:0 10px 24px rgba(2,6,23,.08);
+    }
+    html,body{height:100%}
+    body{
+      margin:0; font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial;
+      color:var(--text);
+      background: radial-gradient(1200px 600px at 80% -50%, rgba(124,156,255,.12), transparent), var(--bg);
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+      scroll-behavior:smooth;
+    }
+    a{color:var(--brand); text-decoration:none} a:hover{text-decoration:underline}
+    .container{max-width:var(--maxw); margin:0 auto; padding:24px}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    /* ===== Header / Nav ===== */
+    .topbar{position:sticky; top:0; z-index:10; backdrop-filter:saturate(130%) blur(10px);
+      background: color-mix(in oklab, var(--bg) 80%, transparent); border-bottom:1px solid rgba(124,156,255,.2)}
+    .topbar-inner{max-width:var(--maxw); margin:0 auto; padding:10px 24px; display:flex; gap:14px; align-items:center; justify-content:space-between}
+    .brand{display:flex; gap:10px; align-items:center}
+    .logo{inline-size:28px; block-size:28px; border-radius:6px; display:grid; place-items:center; background:linear-gradient(135deg, rgba(124,156,255,.35), rgba(65,209,183,.35))}
+    .brand h1{font-size:16px; margin:0}
+    .nav{display:flex; gap:14px; align-items:center}
+    .nav a{padding:8px 10px; border-radius:10px}
+    .nav a:hover{background:rgba(124,156,255,.12); text-decoration:none}
+
+    .btn{appearance:none; background:var(--card); color:var(--text); border:1px solid rgba(124,156,255,.35);
+      border-radius:12px; padding:10px 14px; font-weight:600; cursor:pointer; box-shadow:var(--shadow)}
+    .btn:hover{outline:3px solid var(--ring)}
+
+    /* ===== Hero ===== */
+    .hero{display:grid; grid-template-columns:1fr; gap:18px; align-items:start; margin-top:18px}
+    @media (min-width:900px){ .hero{grid-template-columns:1.2fr .8fr} }
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.02), transparent), var(--card);
+      border:1px solid rgba(124,156,255,.2); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .identity{background:linear-gradient(135deg, rgba(124,156,255,.10), rgba(65,209,183,.10)), var(--card)}
+    .kicker{color:var(--muted); font-weight:700; letter-spacing:.06em; text-transform:uppercase; font-size:12px}
+    .type{border-right:.1em solid var(--brand); white-space:nowrap; overflow:hidden}
+    h2{margin-top:0}
+    .meta{display:flex; flex-wrap:wrap; gap:10px; color:var(--muted); margin-top:10px}
+    .pill{display:inline-flex; align-items:center; gap:8px; background:var(--card); padding:6px 10px; border-radius:999px; border:1px solid rgba(124,156,255,.25)}
+    .pill--button{cursor:pointer}
+
+    /* ===== Sections ===== */
+    .grid{display:grid; grid-template-columns:1fr; gap:16px; margin-top:24px}
+    @media (min-width:900px){ .grid{grid-template-columns:1fr .8fr} }
+    .section-title{display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap}
+    .input{width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(124,156,255,.35); background:var(--card); color:var(--text)}
+
+    .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px}
+    .chip{padding:6px 10px; border-radius:999px; border:1px dashed rgba(124,156,255,.45); cursor:pointer; font-size:13px; background:transparent; color:var(--text)}
+    .chip.active{background:rgba(124,156,255,.12); border-style:solid}
+
+    .projects{display:grid; grid-template-columns:repeat(12,1fr); gap:14px; margin-top:12px}
+    .project{grid-column:span 12; border:1px solid rgba(124,156,255,.25); border-radius:14px; padding:14px; background:linear-gradient(180deg, rgba(65,209,183,.06), transparent)}
+    .project__title{margin:6px 0; font-size:18px}
+    .tags{display:flex; gap:6px; flex-wrap:wrap}
+    .tag{font-size:12px; padding:4px 8px; border-radius:999px; background:rgba(124,156,255,.15); border:1px solid rgba(124,156,255,.35)}
+    .actions{margin-top:8px; display:flex; gap:8px; flex-wrap:wrap}
+
+    /* ===== Sidebar ===== */
+    .meters{display:grid; grid-template-columns:1fr; gap:8px}
+    .meter-row{display:grid; grid-template-columns:1fr 1fr; gap:8px; align-items:center}
+    .meter{height:10px; border-radius:999px; background:linear-gradient(90deg, var(--brand), var(--accent)); box-shadow:inset 0 0 0 1px rgba(124,156,255,.35); width:var(--w)}
+    .bullets{margin:0; padding-left:18px}
+    .kbd{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:#0b1220; color:#d2e0ff; padding:2px 6px; border-radius:6px; border:1px solid rgba(124,156,255,.35)}
+
+    /* ===== Code / Dialog ===== */
+    pre{background:var(--code); color:#e5edf6; padding:14px; border-radius:12px; overflow:auto; border:1px solid rgba(124,156,255,.25); margin:0}
+    code{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace}
+    .dialog{border:none; border-radius:14px; padding:0; max-width:680px; width:90%}
+    .dialog__card{margin:0}
+    .dialog__actions{display:flex; gap:8px; justify-content:flex-end}
+
+    /* ===== Footer ===== */
+    .footer{color:var(--muted); text-align:center; padding:40px 0 20px}
+
+    /* ===== Print ===== */
+    @media print{
+      .topbar, .actions .btn, .pill--button, .nav, .dialog{display:none!important}
+      body{background:#fff; color:#000}
+      .card{box-shadow:none; border:1px solid #0002}
+    }
+  </style>
+</head>
+<body>
+  <!-- Topbar -->
+  <div class="topbar" role="navigation" aria-label="Primary">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">⚡</div>
+        <h1>Joshua Riggs</h1>
+      </div>
+      <nav class="nav">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <button id="theme" class="btn" aria-pressed="false" aria-label="Toggle theme">🌗</button>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="container hero" id="top">
+    <div class="card identity">
+      <div class="kicker">Finance → Software</div>
+      <h2><span id="type" class="type">Joshua Riggs — Software Engineer</span></h2>
+      <p class="lede">I build pragmatic, revenue-aligned tools for regulated industries. With a finance & operations background, I turn raw metrics into shipped features that reduce cost, grow revenue, and make compliance effortless.</p>
+      <div class="meta" aria-label="Contact links">
+        <a class="pill" href="mailto:JoshuaMRiggs@icloud.com">📧 Email</a>
+        <a class="pill" href="https://linkedin.com/in/joshua-riggs-95026617a" target="_blank" rel="noreferrer noopener">💼 LinkedIn</a>
+        <button id="copyEmail" class="pill pill--button" aria-live="polite">📋 Copy email</button>
+        <a class="pill" href="#experience">🧾 Experience</a>
+      </div>
+    </div>
+    <aside class="card">
+      <h3>Snapshot</h3>
+      <ul class="bullets">
+        <li>Cut labor cost by <strong>12%</strong> via scheduling model.</li>
+        <li>Reduced waste by <strong>18%</strong> through analytics.</li>
+        <li>Built KPI dashboards & forecasting pipelines.</li>
+        <li>Compliance-first flows for regulated products.</li>
+      </ul>
+      <div style="height:12px"></div>
+      <h4>Core stack</h4>
+      <p class="stack">
+        <span class="kbd">JavaScript</span>
+        <span class="kbd">TypeScript</span>
+        <span class="kbd">Python</span>
+        <span class="kbd">SQL</span>
+        <span class="kbd">Docker</span>
+        <span class="kbd">Git</span>
+      </p>
+    </aside>
+  </header>
+
+  <!-- Main -->
+  <main class="container grid">
+    <!-- Projects -->
+    <section class="card" id="projects" aria-labelledby="projects-title">
+      <div class="section-title">
+        <h2 id="projects-title">Featured Projects</h2>
+        <input id="search" class="input" placeholder="Search projects (e.g. SQL, dashboard, risk)" aria-label="Search projects" />
+      </div>
+      <div class="chips" id="chips" role="listbox" aria-label="Filter by tag"></div>
+      <div class="projects" id="projectsList" aria-live="polite"></div>
+    </section>
+
+    <!-- Sidebar -->
+    <aside class="card" aria-label="Sidebar">
+      <section>
+        <h3>Skills</h3>
+        <div class="meters">
+          <div class="meter-row"><span>JavaScript/TypeScript</span><div class="meter" style="--w:92%"></div></div>
+          <div class="meter-row"><span>SQL</span><div class="meter" style="--w:88%"></div></div>
+          <div class="meter-row"><span>Python</span><div class="meter" style="--w:85%"></div></div>
+          <div class="meter-row"><span>Docker</span><div class="meter" style="--w:78%"></div></div>
+          <div class="meter-row"><span>Data Viz</span><div class="meter" style="--w:84%"></div></div>
+        </div>
+      </section>
+
+      <section style="margin-top:16px">
+        <h3>Mini Demo: Skill Chart</h3>
+        <canvas id="chart" width="360" height="180" aria-label="Skills chart" role="img"></canvas>
+      </section>
+    </aside>
+  </main>
+
+  <!-- Experience -->
+  <section class="container card" id="experience" aria-labelledby="exp-title">
+    <h2 id="exp-title">Experience</h2>
+    <article>
+      <h3>Software Engineer • Product & Analytics</h3>
+      <p><em>Finance & Operations — Projects across dashboards, forecasting, and compliance UX</em></p>
+      <ul class="bullets">
+        <li>Designed and shipped a KPI dashboard (sales/labor, pour cost, variance) with drilldowns and CSV import.</li>
+        <li>Built a labor forecasting model (moving windows + holiday effects) reducing overtime by <strong>28%</strong>.</li>
+        <li>Created a suitability rules engine to validate annuity product selection vs. client profile and risk tolerance.</li>
+        <li>Developed a vendor negotiation simulator comparing COGS, tiers, and rebate outcomes (saved <strong>22%</strong> on beverages).</li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- About -->
+  <section class="container card" id="about" aria-labelledby="about-title">
+    <h2 id="about-title">About</h2>
+    <p>I’m a developer who speaks finance. I love building tools that connect the spreadsheet to the product: dashboards that leaders actually use, forecasting that guides staffing, and compliant user experiences that keep auditors happy without slowing teams down.</p>
+  </section>
+
+  <!-- Code sample -->
+  <section class="container card" aria-labelledby="code-sample-title">
+    <h2 id="code-sample-title">Tiny Code Sample</h2>
+    <pre><code id="code" aria-live="polite">// click any project’s “View snippet” to populate this panel</code></pre>
+  </section>
+
+  <!-- Contact -->
+  <section class="container card" id="contact" aria-labelledby="contact-title">
+    <h2 id="contact-title">Contact</h2>
+    <form id="contactForm">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px">
+        <label> Name
+          <input class="input" name="name" required placeholder="Your name" />
+        </label>
+        <label> Email
+          <input class="input" type="email" name="email" required placeholder="you@example.com" />
+        </label>
+      </div>
+      <label style="display:block; margin-top:12px"> Message
+        <textarea class="input" name="message" rows="5" required placeholder="Hi Joshua, I’d like to connect about..."></textarea>
+      </label>
+      <div class="actions" style="margin-top:12px">
+        <button class="btn" type="submit">Send</button>
+        <button class="btn" type="reset">Reset</button>
+      </div>
+      <p id="formStatus" class="sr-only" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <footer class="footer">© <span id="year"></span> Joshua Riggs. Built with vanilla HTML/CSS/JS.</footer>
+
+  <!-- Project template -->
+  <template id="tmpl-project">
+    <article class="project" role="article" aria-label="Project">
+      <h3 class="project__title"></h3>
+      <p class="project__desc"></p>
+      <div class="tags"></div>
+      <div class="actions"></div>
+    </article>
+  </template>
+
+  <!-- Intro dialog -->
+  <dialog id="intro" class="dialog">
+    <div class="card dialog__card">
+      <h3>Intro blurb</h3>
+      <p id="blurb"></p>
+      <div class="dialog__actions">
+        <button class="btn" id="copyBlurb">Copy</button>
+        <form method="dialog"><button class="btn">Close</button></form>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+  /* ===== Helper shorthands ===== */
+  const $ = (sel, root=document) => root.querySelector(sel);
+  const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+  const el = (tag, cls, text) => { const e=document.createElement(tag); if(cls) e.className=cls; if(text) e.textContent=text; return e; };
+  const debounce = (fn, ms=250) => { let t; return (...args)=>{ clearTimeout(t); t=setTimeout(()=>fn(...args), ms); } };
+
+  /* ===== Typewriter ===== */
+  (function typewriter(){
+    const elType = $('#type'); const full = elType.textContent.trim();
+    let i=0; elType.textContent='';
+    const tick=()=>{ elType.textContent = full.slice(0, i++); if(i<=full.length) requestAnimationFrame(tick); };
+    tick();
+  })();
+
+  /* ===== Theme toggle (persisted) ===== */
+  (function theme(){
+    const btn = $('#theme');
+    const current = localStorage.getItem('theme');
+    if(current) document.documentElement.setAttribute('data-theme', current);
+    btn.addEventListener('click', ()=>{
+      const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      btn.setAttribute('aria-pressed', String(next==='dark'));
+    });
+  })();
+
+  /* ===== Data ===== */
+  const state = {
+    filters: new Set(),
+    projects: [
+      {
+        title: "KPI Dashboard & Sales Analytics",
+        desc: "Interactive dashboard tracking sales per labor hour, pour cost, and variance with drilldowns and CSV import.",
+        tags: ["JavaScript","SQL","Data Viz","Finance"],
+        links: [{ href: "#", label: "Case Study" }],
+        code: `const toCurrency = n => n.toLocaleString('en-US',{style:'currency',currency:'USD'});\nconst laborPct = (labor, sales) => +(labor/sales*100).toFixed(1);\nconsole.log(toCurrency(1800000), laborPct(216000, 1800000)+\"%\" );`,
+      },
+      {
+        title: "Labor Forecasting Model",
+        desc: "Time-series forecasting to reduce overtime by 28% using moving windows and holiday effects.",
+        tags: ["Python","Forecasting","Ops"],
+        links: [{ href: "#", label: "Jupyter Notes" }],
+        code: `// simple moving average forecast in JS\nfunction sma(series, k){\n  return series.map((_,i)=> i+1>=k ? series.slice(i+1-k,i+1).reduce((a,b)=>a+b,0)/k : null);\n}`,
+      },
+      {
+        title: "Compliance-First Client Intake",
+        desc: "Wizard that captures needs analysis for life, annuities, and LTC with audit trail and export.",
+        tags: ["JavaScript","Forms","Compliance"],
+        links: [{ href: "#", label: "Prototype" }],
+        code: `const required = ['name','dob','suitability'];\nconst ok = required.every(id=> document.getElementById(id)?.value?.trim());`,
+      },
+      {
+        title: "Vendor Negotiation Simulator",
+        desc: "Scenario tool to compare COGS and rebate tiers; saved 22% on beverages.",
+        tags: ["JavaScript","Optimization","Finance"],
+        links: [{ href: "#", label: "Live Demo" }],
+        code: `const scenarios = [12.9, 12.1, 11.6];\nconst best = Math.min(...scenarios);\nconsole.log('Best COGS:', best);`,
+      },
+      {
+        title: "Annuity Suitability Rules Engine",
+        desc: "Rules engine to validate product selection vs. client profile and risk tolerance.",
+        tags: ["JavaScript","Rules","Compliance"],
+        links: [{ href: "#", label: "Spec" }],
+        code: `const rules = [{when:c=>c.age<60, allow:['VA','MYGA']}, {when:c=>c.age>=60, allow:['Fixed','MYGA']}];\nconst canOffer = (client, product) => rules.some(r=>r.when(client) && r.allow.includes(product));`,
+      },
+    ],
+  };
+
+  /* ===== Chips ===== */
+  const allTags = [...new Set(state.projects.flatMap(p=>p.tags))].sort();
+  const chips = $('#chips');
+  allTags.forEach(tag => {
+    const b = el('button', 'chip'); b.textContent = tag; b.role = 'option';
+    b.addEventListener('click', ()=>{
+      if(state.filters.has(tag)) state.filters.delete(tag); else state.filters.add(tag);
+      b.classList.toggle('active'); render();
+    });
+    chips.appendChild(b);
+  });
+
+  /* ===== Project search/filter render ===== */
+  $('#search').addEventListener('input', debounce(render));
+  const tmpl = $('#tmpl-project');
+  const list = $('#projectsList');
+
+  function render(){
+    const q = $('#search').value.toLowerCase().trim();
+    list.innerHTML='';
+    state.projects
+      .filter(p => state.filters.size===0 || p.tags.some(t=> state.filters.has(t)))
+      .filter(p => !q || (p.title+" "+p.desc+" "+p.tags.join(' ')).toLowerCase().includes(q))
+      .forEach(p => {
+        const node = tmpl.content.cloneNode(true);
+        node.querySelector('.project__title').textContent = p.title;
+        node.querySelector('.project__desc').textContent = p.desc;
+        const tags = node.querySelector('.tags');
+        p.tags.forEach(t=> tags.appendChild(el('span','tag',t)));
+        const actions = node.querySelector('.actions');
+        p.links.forEach(l=> {
+          const a = el('a','pill', l.label); a.href = l.href; a.target='_blank'; a.rel='noreferrer noopener'; actions.appendChild(a);
+        });
+        const btn = el('button','btn','View snippet');
+        btn.addEventListener('click', ()=> showCode(p.code));
+        actions.appendChild(btn);
+        list.appendChild(node);
+      });
+  }
+  render();
+
+  /* ===== Code sample viewer ===== */
+  const codeEl = $('#code');
+  function showCode(src){
+    codeEl.textContent = '';
+    let i=0; const tick=()=>{ codeEl.textContent = src.slice(0, i++); if(i<=src.length) requestAnimationFrame(tick); };
+    tick();
+    window.scrollTo({ top: codeEl.getBoundingClientRect().top + window.scrollY - 80, behavior:'smooth' });
+  }
+
+  /* ===== Copy email ===== */
+  $('#copyEmail').addEventListener('click', async (e)=>{
+    const email = 'JoshuaMRiggs@icloud.com';
+    try { await navigator.clipboard.writeText(email); e.currentTarget.textContent='✅ Copied'; setTimeout(()=> e.currentTarget.textContent='📋 Copy email', 1800); }
+    catch { e.currentTarget.textContent='Copy failed'; }
+  });
+
+  /* ===== Year ===== */
+  $('#year').textContent = new Date().getFullYear();
+
+  /* ===== Intro dialog (fun CTA) ===== */
+  const dlg = $('#intro');
+  function openIntro(){
+    const lines = [
+      'I build pragmatic, revenue-aligned tools for regulated industries.',
+      'Finance-fluent engineer: dashboards, forecasting, and compliance UX.',
+      'Data to decisions: turning raw metrics into shipped features.',
+    ];
+    $('#blurb').textContent = lines[Math.floor(Math.random()*lines.length)];
+    dlg.showModal();
+  }
+  // Optional: you can open on load or attach to a button if you add one
+  // openIntro();
+
+  $('#copyBlurb')?.addEventListener('click', async ()=>{
+    await navigator.clipboard.writeText($('#blurb').textContent || '');
+    $('#copyBlurb').textContent='✅ Copied'; setTimeout(()=> $('#copyBlurb').textContent='Copy', 1200);
+  });
+
+  /* ===== Simple Canvas Bar Chart ===== */
+  (function drawChart(){
+    const c = $('#chart'); if(!c?.getContext) return; const ctx = c.getContext('2d');
+    const data = [92, 88, 85, 78, 84];
+    const labels = ['JS/TS','SQL','Python','Docker','Viz'];
+    const W = c.width, H = c.height, pad = 30; const bw = (W - pad*2) / data.length * .7; const gap = (W - pad*2) / data.length * .3;
+    ctx.clearRect(0,0,W,H);
+    ctx.font = '12px system-ui'; ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text');
+    ctx.strokeStyle = 'rgba(124,156,255,.35)';
+    // axis
+    ctx.beginPath(); ctx.moveTo(pad, H-pad); ctx.lineTo(W-pad, H-pad); ctx.stroke();
+    // bars
+    data.forEach((v,i)=>{
+      const x = pad + i*(bw+gap);
+      const h = (H - pad*2) * (v/100);
+      const y = H - pad - h;
+      ctx.fillStyle = i%2 ? '#7c9cff' : '#41d1b7';
+      ctx.fillRect(x, y, bw, h);
+      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text');
+      ctx.fillText(labels[i], x, H-pad+14);
+    });
+  })();
+
+  /* ===== Contact form (mailto fallback) ===== */
+  $('#contactForm').addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    const name = data.get('name'); const email = data.get('email'); const msg = data.get('message');
+    const subject = encodeURIComponent(`Website inquiry from ${name}`);
+    const body = encodeURIComponent(`From: ${name} <${email}>\n\n${msg}`);
+    window.location.href = `mailto:JoshuaMRiggs@icloud.com?subject=${subject}&body=${body}`;
+    $('#formStatus').textContent = 'Opening your email client...';
+  });
+  </script>
+</body>
+</html>
